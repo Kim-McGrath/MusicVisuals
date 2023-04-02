@@ -1,10 +1,15 @@
 # Music Visualiser Project
 
 Team members:
+
 Eduard Dravnieks - C21381381
+
 Ileana Toufekoula - C21733731 
+
 Kim McGrath - D22127059
+
 Lee Cox - C21503599
+
 
 ## Instructions
 - Fork this repository and use it a starter project for your assignment
