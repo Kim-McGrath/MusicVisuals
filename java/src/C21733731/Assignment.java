@@ -6,7 +6,7 @@ public class Assignment extends PApplet {
 
     public void settings()
     {
-        fullScreen(P3D,SPAN);
+        size(800, 800, P3D);
     }
 
     public void setup()
