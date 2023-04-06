@@ -89,12 +89,12 @@ class Boid {
       float theta = velocity.heading() + PApplet.radians(90);
   
       
-      p.fill(0,255,0);
+      p.fill(102, 255, 51);
       p.noStroke();
       p.pushMatrix();
       p.translate(position.x, position.y);
       p.rotate(theta);
-      p.ellipse(theta,theta,20,20);
+      p.ellipse(theta,theta,7.5f,7.5f);
       //p.beginShape(PApplet.TRIANGLES);
       p.vertex(0, -r*2);
       p.vertex(-r, r*2);

@@ -21,15 +21,15 @@ public class ForestCampfire extends PApplet
 
     public void draw()
     {
-        image(camp, 0, 0, displayWidth, displayHeight);// Default way to print the image as the background while resizing
-        //camp.resize(displayWidth, displayHeight);
-        /* 
-        for(int i = 0; i < 7000 ; i++)
+        //image(camp, 0, 0, displayWidth, displayHeight);// Default way to print the image as the background while resizing
+        camp.resize(displayWidth, displayHeight);
+        
+        for(int i = 0; i < 5000; i++)
         {
             int x = (int)random(displayWidth);
             int y = (int)random(displayHeight);
             int c = camp.get(x,y);
-            float z = random(5, 20);
+            float z = random(7.5f, 30);
             fill(c);
             noStroke();
         
@@ -40,12 +40,8 @@ public class ForestCampfire extends PApplet
             //}
             
         }
-        */
-        Boid B;
-
-        B = new Boid();
-        
-        B.draw();
+    
+       
            
     }
 }
