@@ -10,29 +10,45 @@ public class Explode{
     int x, y, z;
     PApplet p;
     PVector position;
+    int amount = 10;
+    float size = 15;
 
     public Explode(PApplet p){
         this.p = p;
-        Cubes = new cubes[10][10][10];
+        Cubes = new cubes[amount][amount][amount];
 
-        for(x = 0 ; x < 10 ; x++){
-            for(y = 0 ; y < 10 ; y++){
-                for(z = 0 ; z < 10 ; z++){
 
-                    position = new PVector(x * 10, y * 10, z * 10);
-                    Cubes[x][y][z] = new cubes(p, position, 10);
+        for(x = 0 ; x < amount ; x++){
+            for(y = 0 ; y < amount ; y++){
+                for(z = 0 ; z < amount ; z++){
+                    p.translate(size/2f,size/2f,size/2f);
+                    position = new PVector(x * size - (float)amount/2f *size + size/2f , y *size - (float)amount/2f *size + size/2f, z * size - (float)amount/2f *size + size/2f);
+                    Cubes[x][y][z] = new cubes(p, position, size);
 
+
+                }
+            }
+        }
+
+        position = new PVector(0,0,0);
+    }
+
+    public void render(){
+        for(x = 0 ; x <amount ; x++){
+            for(y = 0 ; y <amount ; y++){
+                for(z = 0 ; z <amount ; z++){
+                    Cubes[x][y][z].antigravity(position, 0.1f, 3f); 
+                    Cubes[x][y][z].render();
 
                 }
             }
         }
     }
 
-    public void render(){
-        for(x = 0 ; x < 10 ; x++){
-            for(y = 0 ; y < 10 ; y++){
-                for(z = 0 ; z < 10 ; z++){
-                    Cubes[x][y][z].render();
+    public void boom(){
+        for(x = 0 ; x <amount ; x++){
+            for(y = 0 ; y <amount ; y++){
+                for(z = 0 ; z <amount ; z++){                    
 
                 }
             }

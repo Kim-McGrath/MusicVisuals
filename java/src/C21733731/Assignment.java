@@ -6,7 +6,7 @@ import processing.core.PImage;
 
 public class Assignment extends Visual {
 
-    PImage volcano;
+    PImage unicorn;
     Explode lava;
 
 
@@ -28,7 +28,7 @@ public class Assignment extends Visual {
 
     public void setup()
     {
-        volcano = loadImage("volcano.jpg");
+        unicorn = loadImage("unicorn.jpg");
         colorMode(HSB);
 
         startMinim();
@@ -44,7 +44,7 @@ public class Assignment extends Visual {
     {
         calculateAverageAmplitude();
         background(0);
-        image(volcano, 0, 0, displayWidth, displayHeight);
+        image(unicorn, 0, 0, displayWidth, displayHeight);
         noFill();
         lights();
         stroke(map(getSmoothedAmplitude(), 0, 1, 0, 255), 255, 255);
@@ -55,18 +55,26 @@ public class Assignment extends Visual {
         smoothedBoxSize = lerp(smoothedBoxSize, boxSize, 0.2f);
 
         
-        //fill(r, 255, 255);
+        
         //box(300);
 
-        //r++;
+        
+        rotateX(angle); 
         rotateY(angle);
-        rotateX(angle);           
+
+        stroke(140, 255, 255);         
+        strokeWeight(10);
+        point(0, 0);
+        stroke(130, 255, 255);         
         strokeWeight(5);
-            
-        //box(smoothedBoxSize);
-        lava.render(
-            
-        );
+        fill(140, 255, 255, 60);
+        box(smoothedBoxSize);
+
+        rotateY(-2*angle);
+        rotateX(-2*angle);
+        strokeWeight(2);
+        fill(140, 255, 255, 70);
+        lava.render();
         angle += 0.01f;
     
 
