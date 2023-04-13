@@ -19,9 +19,10 @@ public class Main
 		String[] a = {"MAIN"};
         processing.core.PApplet.runSketch( a, new Assignment());
     }
-
 	public static void main(String[] args)
 	{
-		assignment();			
+		//Main main = new Main();
+		//main.startUI();	
+		assignment();		
 	}
 }
