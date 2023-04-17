@@ -44,6 +44,7 @@ public class Flocking extends PApplet
   // The Boid class
  
  Flock flock;
+ Boid boid;
   public void settings()
   {
     size(displayWidth, displayHeight);
@@ -102,7 +103,7 @@ public class Flocking extends PApplet
             int y = (int)random(displayHeight);
             int c = camp.get(x,y);
             float f = lerpedBuffer[i%1024] * halfH * 9.5f;
-            float z = random(7.5f, 25);
+            //float z = random(7.5f, 25);
             /* 
             if (x < 645 ||  x > 823 && y > 50 || y < 368) 
             {
@@ -117,8 +118,9 @@ public class Flocking extends PApplet
               f = 6;
             }
             ellipse(x,y,f%27,f%27);
+            Boid.c = f;
         }
-       
+          
           flock.run();
         
           

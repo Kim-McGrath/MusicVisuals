@@ -14,6 +14,7 @@ class Boid {
     float r;
     float maxforce;    // Maximum steering force
     float maxspeed;    // Maximum speed
+    public static float c;
   
       public Boid(PApplet p, float x, float y) {
       acceleration = new PVector(0, 0);
@@ -32,7 +33,7 @@ class Boid {
       flock(boids);
       update();
       borders();
-      render();
+      render(c);
     }
   
     void applyForce(PVector force) {
@@ -84,12 +85,12 @@ class Boid {
       return steer;
     }
   
-    void render() {
+    void render(float param) {
       // Draws the shape rotated in the direction of velocity
       float theta = velocity.heading() + PApplet.radians(90);
-  
       
-      p.fill(102, 255, 51);
+      
+      p.fill(param, 255, 51);
       p.noStroke();
       p.pushMatrix();
       p.translate(position.x, position.y);
