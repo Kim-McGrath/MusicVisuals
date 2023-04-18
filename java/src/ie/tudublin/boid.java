@@ -95,7 +95,7 @@ class Boid {
       p.pushMatrix();
       p.translate(position.x, position.y);
       p.rotate(theta);
-      p.ellipse(theta,theta,7.5f,7.5f);
+      p.ellipse(theta,theta,9.5f,9.5f);
       //p.beginShape(PApplet.TRIANGLES);
       p.vertex(0, -r*2);
       p.vertex(-r, r*2);

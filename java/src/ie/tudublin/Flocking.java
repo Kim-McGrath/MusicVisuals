@@ -80,7 +80,11 @@ public class Flocking extends PApplet
  }
 
  public void draw() {
- 
+  /*  
+  fill(0, 20);
+    noStroke();
+    rect(0, 0, displayWidth, displayHeight);
+*/ 
   //Audio related variables
   float halfH = height / 2;
   float average = 0;
@@ -133,9 +137,9 @@ public class Flocking extends PApplet
                  
             } 
             */ 
-              if (freq > 2000)
+              if (freq < 50  || freq > 1500) 
               {
-                fill(f ,c ,f);
+                fill(c ,f ,f);
               }   
               else 
               {
