@@ -44,30 +44,33 @@ public class Flocking extends PApplet
   
   // Variable for the image
   PImage camp;
-  // The Boid class
- 
+ //Variable for the flock
  Flock flock;
+ //Variable for boid
  Boid boid;
+
   public void settings()
   {
     size(displayWidth, displayHeight);
     
   }
+
  public void setup() 
  {
 
-  minim = new Minim(this);
-  // Load the audio file
-  ap = minim.loadFile("chucky.mp3", 1024);
-        ap.play();
-        ab = ap.mix;
+    minim = new Minim(this);
+    // Load the audio file
+    ap = minim.loadFile("edsection.mp3", 1024);
+    ap.play();
+    ab = ap.mix;
 
-        u = height / 2;
-        smoothedY = u; 
-  background(0);
-  // Load the image
-  camp = loadImage("forestcampfire.jpg");
-   flock = new Flock();
+    u = height / 2;
+    smoothedY = u; 
+    background(0);
+    // Load the image
+    camp = loadImage("forestcampfire.jpg");
+    flock = new Flock();
+   
    // Add an initial set of boids into the system
    for (int i = 0; i < 100; i++)
     {
@@ -77,18 +80,19 @@ public class Flocking extends PApplet
  }
 
  public void draw() {
- //Audio related things
+ 
+  //Audio related variables
   float halfH = height / 2;
   float average = 0;
   float sum = 0;
   off += 1;
+ 
   // This calculates the amplitude of the current sample
   fft.forward(ab);
   int highestIndex = 0;
 
   for(int i = 0 ;i < fft.specSize() / 2 ; i ++)
   {
-      //line(i * 2.0f, height, i * 2.0f, height - fft.getBand(i) * 5.0f);
 
       if (fft.getBand(i) > fft.getBand(highestIndex))
       {
