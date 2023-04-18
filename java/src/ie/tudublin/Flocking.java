@@ -5,6 +5,7 @@ import ddf.minim.AudioBuffer;
 import ddf.minim.AudioInput;
 import ddf.minim.AudioPlayer;
 import ddf.minim.Minim;
+import ddf.minim.analysis.FFT;
 
 public class Flocking extends PApplet
 {
@@ -15,6 +16,8 @@ public class Flocking extends PApplet
   AudioInput ai;
   AudioBuffer ab;
 
+  FFT fft;
+  public static float freq;
   int mode = 0;
 
   float u = 0;
@@ -70,6 +73,7 @@ public class Flocking extends PApplet
     {
      flock.addBoid(new Boid(this, width,height));
     }
+    fft = new FFT(1024, 44100);
  }
 
  public void draw() {
@@ -78,7 +82,21 @@ public class Flocking extends PApplet
   float average = 0;
   float sum = 0;
   off += 1;
+  // This calculates the amplitude of the current sample
+  fft.forward(ab);
+  int highestIndex = 0;
 
+  for(int i = 0 ;i < fft.specSize() / 2 ; i ++)
+  {
+      //line(i * 2.0f, height, i * 2.0f, height - fft.getBand(i) * 5.0f);
+
+      if (fft.getBand(i) > fft.getBand(highestIndex))
+      {
+          highestIndex = i;
+      }
+  }
+  
+  float freq = fft.indexToFreq(highestIndex);
 
   // Calculate sum and average of the samples
   // Also lerp each element of buffer;
@@ -110,8 +128,16 @@ public class Flocking extends PApplet
                 f = f%255 - 50 ;
                  
             } 
-            */         
-            fill(c); 
+            */ 
+              if (freq > 2000)
+              {
+                fill(f ,c ,f);
+              }   
+              else 
+              {
+                fill(c); 
+              }   
+            
             noStroke();
             if(f%30 < 6 )
             {
