@@ -3,7 +3,7 @@ package ie.tudublin;
 // Lee's Visuals
 import C21503599.MyFirstChange;
 import D22127059.Drums;
-import D22127059.Drums2;
+import D22127059.Circle;
 // Example's that can be run
 import example.CubeVisual;
 import example.MyVisual;
@@ -26,10 +26,10 @@ public class Main
         processing.core.PApplet.runSketch( a, new Drums());
     }
 
-	public static void drums2()
+	public static void circle()
 	{
 		String[] a = {"MAIN"};
-        processing.core.PApplet.runSketch( a, new Drums2());
+        processing.core.PApplet.runSketch( a, new Circle());
     }
 
 	public static void RotatingAudioBands()

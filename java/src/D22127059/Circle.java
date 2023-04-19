@@ -6,7 +6,7 @@ import ddf.minim.AudioPlayer;
 import ddf.minim.Minim;
 import processing.core.PApplet;
 
-public class Drums2 extends PApplet
+public class Circle extends PApplet
 {
     Minim minim;
     AudioPlayer ap;
@@ -32,9 +32,11 @@ public class Drums2 extends PApplet
         ap.play();
         ab = ap.mix;
         colorMode(HSB);
-
+        
         y = height / 2;
-        smoothedY = y;        
+        smoothedY = y; 
+        
+        
     }
 
     float off = 0;
