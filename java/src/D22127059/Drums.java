@@ -44,7 +44,7 @@ public class Drums extends Visual {
             translate(x, -h / 2, 0);
             
             if (i == frontCylinderIndex) { // check if this cylinder is in front
-                rotateX(PI/2); // rotate cylinder to face the camera
+                rotateX(PI/2); 
             }
     
             beginShape(QUAD_STRIP);
