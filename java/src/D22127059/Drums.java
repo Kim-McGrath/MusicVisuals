@@ -97,7 +97,7 @@ public class Drums extends Visual
             pushMatrix();
             translate(x, -h / 15, 0);
             
-            if (i == frontCylinderIndex) { // check if this cylinder is in front
+            if (i == frontCylinderIndex) { // kick drum
                 rotateX(PI/2); 
                 translate(x + kickCoordX, -h / 2 + kickCoordY, 0);
             }
