@@ -29,6 +29,7 @@ public class MyFirstChange extends Visual {
         startMinim();
         loadAudio("chucky.mp3"); 
         getAudioPlayer().play();
+        lights();
     }
     
 //(500 + abs(sin(frameCount*(float)0.01)) * 500)
@@ -55,7 +56,7 @@ public class MyFirstChange extends Visual {
         // }
 
         hint(DISABLE_DEPTH_TEST);
-
+        hint(ENABLE_STROKE_PERSPECTIVE);
         int total = 100;
         PVector[][] PVa = new PVector[total][total];
 
@@ -66,7 +67,6 @@ public class MyFirstChange extends Visual {
 
                 int imnd = i + j * total;
                 float r = 200 + getAudioBuffer().get(imnd%width/2)*200;
-
                 float x = r * cos(lat) * cos(lon);
                 float y = r * sin(lat) * cos(lon);
                 float z = r * sin(lon);
