@@ -1,11 +1,12 @@
 //Made by Lee Cox inspiration from https://www.youtube.com/watch?v=fO1uW-xhwtA
 
 //I made a mobius strip and then stopped it from looking like one at all by changing it with the amplitude
-//of the music drastically. Also serious ***epilepsy warning*** the Screen flashes and is very bright
-//and the animation is very bright and all over the place
+//of the music drastically. Screen flashes and is very bright and the animation is very bright and all over the place
 
 
 package C21503599;
+import java.util.Random;
+
 import ddf.minim.*;
 import ddf.minim.analysis.BeatDetect;
 
@@ -25,8 +26,9 @@ public class Lee extends Visual {
     int redN = 60;
     int gb = 220;
     int siz = 20;
-    int hold = siz;
     int swap = 0;
+    int hold;
+    float rot = (float)0.06;
 
     public void settings() {
         size(displayWidth, displayHeight, P3D);
@@ -42,12 +44,42 @@ public class Lee extends Visual {
         lights();
     }
     
-    //change range for width of strip
     public void keyPressed() {
+        //change strip width
         if (key == ' ') {
             swap++;
             siz = swap % 2;
         }
+        //reset strip width
+        if (key == 'r') {
+            siz = 20;
+            textSize(50);
+        }
+        //randomise colours of strip
+        if (key == 'c') {
+            redN = (int)random(0, 255);
+            gb = (int)random(0,255);
+        }
+
+        if (key == 'p') {
+            if (rot == (float)0.06) {
+                rot = (float)0.00;
+            } else {
+                rot = (float)0.06;
+            }
+        }
+    }
+    //swap from range -1 to 1 - 0 to 0 also known as a cirlce
+    public void swap() {
+        swap++;
+        siz = swap % 2;
+    }
+
+    //to swap colours
+    public void colourSwap() {
+        hold = redN;
+        redN = gb;
+        gb = hold;
     }
 
     public void draw() {
@@ -60,11 +92,8 @@ public class Lee extends Visual {
         translate(width/2, height/2, 0);
 
         //spin strip
-        rotateY((float)-0.06);
-        rotateX((float)-0.06);
-
-        
-
+        rotateY(rot);
+        rotateX(rot);
         calculateAverageAmplitude();
 
         //stopped audio issues
@@ -110,14 +139,12 @@ public class Lee extends Visual {
             }
             endShape();
         }
-        redN = 60;
-        gb = 220;
+        
 
         //flicker backround and change strip colours on beat
         if (beat.isOnset()) {
             background(255);
-            redN = 220;
-            gb = 60;
+            colourSwap();
         } 
         //cancels out translation so it doesn't go flying off screen
         translate(-(width/2), -(height/2), 0);

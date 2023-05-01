@@ -19,13 +19,18 @@ Lee Cox - C21503599
 - Check out the WaveForm and AudioBandsVisual for examples of how to call the Processing functions from other classes that are not subclasses of PApplet
 
 # Description of the assignment
+- Lee's part: visualises the song with a mobius strip that changes the width of the strip based on the amplitude
+
+
 
 # Instructions
+- Lee's part: Can change the size of the range for the strip 40 to 0 with the space bar, 'r' resets width, 'c' randomises the colour, 'p' pause/play rotation
 
 # How it works
+- Lee's part: fills a PVector array of the 3D coordinates for the mobius strip using the formula for a mobius strip then uses the xyz values to draw it using triangles (Trianglestrip) 
 
 # What I am most proud of in the assignment
-
+- Lee's part: Seeing how a shape can be calculated for 3D space and implementing the formula into my code and seeing it working
 # Markdown Tutorial
 
 This is *emphasis*
