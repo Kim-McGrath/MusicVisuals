@@ -1,5 +1,11 @@
-package C21503599;
+//Made by Lee Cox inspiration from https://www.youtube.com/watch?v=fO1uW-xhwtA
 
+//I made a mobius strip and then stopped it from looking like one at all by changing it with the amplitude
+//of the music drastically. Also serious ***epilepsy warning*** the Screen flashes and is very bright
+//and the animation is very bright and all over the place
+
+
+package C21503599;
 import ddf.minim.*;
 import ddf.minim.analysis.BeatDetect;
 
@@ -9,20 +15,22 @@ import ie.tudublin.Visual;
 import processing.core.PVector;
 
 
-public class MyFirstChange extends Visual {
+public class Lee extends Visual {
 
     Minim minim;
     AudioInput in;
     BeatDetect beat;
     AudioBuffer ab;
     AudioPlayer ai;
-    int redN = 220;
-    int gb = 50;
+    int redN = 60;
+    int gb = 220;
+    int siz = 20;
+    int hold = siz;
+    int swap = 0;
 
     public void settings() {
-        size(1024, 768, P3D);
+        size(displayWidth, displayHeight, P3D);
         minim = new Minim(this);
-        //in = minim.getLineIn(Minim.STEREO, 1024);
         beat = new BeatDetect();
         beat.setSensitivity(100);
     }
@@ -32,62 +40,66 @@ public class MyFirstChange extends Visual {
         loadAudio("chucky.mp3"); 
         getAudioPlayer().play();
         lights();
-        frameRate(100);
-        frameRate(50);
     }
     
-//(500 + abs(sin(frameCount*(float)0.01)) * 500)
+    //change range for width of strip
+    public void keyPressed() {
+        if (key == ' ') {
+            swap++;
+            siz = swap % 2;
+        }
+    }
 
     public void draw() {
         beat.detect(getAudioPlayer().mix);
         blendMode(NORMAL);
         background(0);
         
-        //Skews the perspective of the view making stuff appear a little wider
-        perspective(PI/3, width/height, 10, 1000000);
-
         beginCamera();
         //centers visual
         translate(width/2, height/2, 0);
 
-        //spin sphere
-        rotateY((float)0.04);
-        rotateX((float)0.01);
+        //spin strip
+        rotateY((float)-0.06);
+        rotateX((float)-0.06);
 
+        
 
-        stroke(255);
         calculateAverageAmplitude();
 
         //stopped audio issues
         hint(DISABLE_DEPTH_TEST);
         //make stroke appear more 3D
         hint(ENABLE_STROKE_PERSPECTIVE);
-        int total = 100;
+        int total = 40;
         
-        //2d arr to store the coords of sphere
+        //2d arr to store the coords of strip
         PVector[][] PVa = new PVector[total][total];
 
-        //calculate co-ordinates
-        for (int i = 0; i < total; i++) {
-            float lat = map(i, 0, total - 1, -HALF_PI, HALF_PI);
-            for (int j = 0; j < total; j++) {
-                float lon = map(j, 0, total - 1, -PI, PI);
 
-                int imnd = i + j * total;
-                float r = 200 + getAudioBuffer().get(imnd%width/2)*200;
-                float x = r * cos(lat) * cos(lon);
-                float y = r * sin(lat) * cos(lon);
-                float z = r * sin(lon);
-                PVa[i][j] = new PVector(x, y, z);
+        //calculate co-ordinates for mobius strip
+        for (int i = 0; i < total; i++) {
+            //u is the angle of rotation of plane around central axis
+            float u = map(i, 0, total - 1, 0, PI*2);
+            for (int j = 0; j < total; j++) {
+                int ind = i + j * total;
+                
+                //v is the point along the line of the strip
+                float v = map(j, abs(getAudioBuffer().get(ind%1024/2)*100), total -1, -siz, siz);
+                float x =  ((1 + v/2*(cos(u/2)))*cos(u));
+                float y =  ((1 + v/2*(cos(u/2)))*sin(u));
+                float z = (v/2*(sin(u/2)));
+
+                PVa[i][j] = new PVector(x * 50, y * 50, z * 50);
             }
         }
 
         //overlapping colour adds towards white
         blendMode(ADD);
 
-        //Creates sphere from co-ordinates using triangles
+        //Creates mobius strip from co-ordinates using triangles
         //Changes alpha based on amplitude each frame with a with a cap on 255
-        //The red, green and blue get changed by the beat detect to switch to a light blue
+        //The red, green and blue get changed by the beat detect to switch to a dark red
         for (int i = 0; i < total - 1; i++) {
             beginShape(TRIANGLE_STRIP);
             stroke(redN, gb, gb,  min(getAudioBuffer().get(i)*500, 255));
@@ -98,14 +110,14 @@ public class MyFirstChange extends Visual {
             }
             endShape();
         }
-        redN = 220;
-        gb = 50;
+        redN = 60;
+        gb = 220;
 
-        //flicker backround and change sphere colours on beat
+        //flicker backround and change strip colours on beat
         if (beat.isOnset()) {
             background(255);
-            redN = 0;
-            gb = 255;
+            redN = 220;
+            gb = 60;
         } 
         //cancels out translation so it doesn't go flying off screen
         translate(-(width/2), -(height/2), 0);

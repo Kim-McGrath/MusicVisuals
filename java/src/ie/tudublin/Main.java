@@ -1,7 +1,7 @@
 package ie.tudublin;
 
 // Lee's Visuals
-import C21503599.MyFirstChange;
+import C21503599.Lee;
 
 // Example's that can be run
 import example.CubeVisual;
@@ -16,7 +16,7 @@ public class Main
 	public void startUI()
 	{
 		String[] a = {"MAIN"};
-        processing.core.PApplet.runSketch( a, new MyFirstChange());		
+        processing.core.PApplet.runSketch( a, new Lee());		
 	}
 
 	public static void main(String[] args)
