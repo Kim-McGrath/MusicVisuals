@@ -15,6 +15,7 @@ class Boid {
     float maxforce;    // Maximum steering force
     float maxspeed;    // Maximum speed
     public static float c;
+    public static float spread = 12.5f;
   
       public Boid(PApplet p, float x, float y) {
       acceleration = new PVector(0, 0);
@@ -40,7 +41,7 @@ class Boid {
       // We could add mass here if we want A = F / M
       acceleration.add(force);
     }
-  
+    
     // We accumulate a new acceleration each time based on three rules
     void flock(ArrayList<Boid> boids) {
       PVector sep = separate(boids);   // Separation
@@ -95,7 +96,7 @@ class Boid {
       p.pushMatrix();
       p.translate(position.x, position.y);
       p.rotate(theta);
-      p.ellipse(theta,theta,12.5f,12.5f);
+      p.ellipse(theta,theta,spread,spread);
       //p.beginShape(PApplet.TRIANGLES);
       p.vertex(0, -r*2);
       p.vertex(-r, r*2);

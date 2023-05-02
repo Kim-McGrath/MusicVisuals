@@ -6,7 +6,7 @@ import ddf.minim.AudioInput;
 import ddf.minim.AudioPlayer;
 import ddf.minim.Minim;
 import ddf.minim.analysis.FFT;
-import ddf.minim.analysis.BeatDetect;
+
 public class Flocking extends PApplet
 {
   
@@ -15,7 +15,7 @@ public class Flocking extends PApplet
   AudioPlayer ap;
   AudioInput ai;
   AudioBuffer ab;
-  BeatDetect bd;
+  
 
   FFT fft;
   public static float freq;
@@ -53,8 +53,6 @@ public class Flocking extends PApplet
   public void settings()
   {
     size(displayWidth, displayHeight);
-    bd = new BeatDetect();
-    bd.setSensitivity(300);
   }
 
  public void setup() 
@@ -91,7 +89,7 @@ public class Flocking extends PApplet
     noStroke();
     rect(0, 0, displayWidth, displayHeight);
 */ 
-  bd.detect(ap.mix);
+  
   //Audio related variables
   float halfH = height / 2;
   float average = 0;
@@ -131,39 +129,52 @@ public class Flocking extends PApplet
     
   switch (mode) {
     case 1:
-          background(15);
-     for(int i = 0; i < 6000; i++)
+
+     for(int i = 0; i < 4000; i++)
         {
-            float lerpedAverage = 0;
             int x = (int)random(displayWidth);
             int y = (int)random(displayHeight);
             int c = camp.get(x,y);
             float f = lerpedBuffer[i%1024] * halfH * 9.5f;
 
-            if (bd.isKick())         
+            if (freq < 60 || freq > 1500)         
              {
               fill(c ,f, f); 
               
             }   
             else 
             {
-              fill(0); 
+              fill(15); 
             } 
-
+           
             ellipse(x,y,f%27,f%27);
           }
       break;
     case 2:
-          background(0);
+          image(camp, 0 ,0);
           flock.run();
-          float lerpedAverage = 0;
-          lerpedAverage = lerp(lerpedAverage, average, 0.1f);
-          Boid.c = lerpedAverage;
+        
+          if(freq < 60 || freq > 1500)
+          {
+           Boid.spread = 20;
+          }
+          else
+          {
+            Boid.spread = 12.5f;
+          }
           flock.run();
      break;
 
     case 3:
     flock.run();
+      if(freq < 60 || freq > 1500)
+          {
+           Boid.spread = 20;
+          }
+          else
+          {
+            Boid.spread = 12.5f;
+          }
     for(int i = 0; i < 4000; i++)
     {
         int x = (int)random(displayWidth);
@@ -172,14 +183,30 @@ public class Flocking extends PApplet
         float f = lerpedBuffer[i%1024] * halfH * 9.5f;  
         fill(c);
         ellipse(x,y,6,6);
-        Boid.c = f;
     }
+      if(freq < 60 || freq > 1500)
+          {
+           Boid.spread = 20;
+          }
+          else
+          {
+            Boid.spread = 12.5f;
+          }
     flock.run();
      break;
 
     case
      4:
     flock.run();
+    if(freq < 60 || freq > 1500)
+          {
+           Boid.spread = 20;
+          }
+          else
+          {
+            Boid.spread = 12.5f;
+          }
+    Boid.spread = 12.5f;
     for(int i = 0; i < 4000; i++)
     {
         int x = (int)random(displayWidth);
@@ -204,8 +231,16 @@ public class Flocking extends PApplet
         f = 6;
       }
       ellipse(x,y,f%27,f%27);
-      Boid.c = f;
+
     }
+      if(freq < 60 || freq > 1500)
+          {
+           Boid.spread = 20;
+          }
+          else
+          {
+            Boid.spread = 12.5f;
+          }
       flock.run();
      break;
 
