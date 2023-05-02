@@ -8,7 +8,7 @@ public class Assignment extends Visual {
 
     PImage unicorn;
     Explode glitter[];
-    int ga=7;
+    int ga=6;
 
     public void settings()
     {
@@ -27,7 +27,7 @@ public class Assignment extends Visual {
 
 
         for(int i=0; i<ga; i++){
-            glitter[i] = new Explode(this, 12500+i*1500);
+            glitter[i] = new Explode(this, 12500+i*2000);
         }
 
         getAudioPlayer().play();
@@ -49,7 +49,7 @@ public class Assignment extends Visual {
         translate(width/2, height/2, 500);
                
         float boxSize = 250 + (getAmplitude() * 300);//map(average, 0, 1, 100, 400); 
-        smoothedBoxSize = lerp(smoothedBoxSize, boxSize, 0.2f);
+        smoothedBoxSize = lerp(smoothedBoxSize, boxSize, 0.45f);
 
         
         
