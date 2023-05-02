@@ -7,7 +7,7 @@ public class Main
 {	
 
 
-	public static void circle()
+	public static void Kim()
 	{
 		String[] a = {"MAIN"};
         processing.core.PApplet.runSketch( a, new Kim());
@@ -17,6 +17,6 @@ public class Main
 	public static void main(String[] args)
 	{
 		
-		circle();			
+		Kim();			
 	}
 }
