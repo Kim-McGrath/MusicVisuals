@@ -6,7 +6,7 @@ import ddf.minim.AudioInput;
 import ddf.minim.AudioPlayer;
 import ddf.minim.Minim;
 import ddf.minim.analysis.FFT;
-
+import ddf.minim.analysis.BeatDetect;
 public class Flocking extends PApplet
 {
   
@@ -15,6 +15,7 @@ public class Flocking extends PApplet
   AudioPlayer ap;
   AudioInput ai;
   AudioBuffer ab;
+  BeatDetect bd;
 
   FFT fft;
   public static float freq;
@@ -52,7 +53,8 @@ public class Flocking extends PApplet
   public void settings()
   {
     size(displayWidth, displayHeight);
-    
+    bd = new BeatDetect();
+    bd.setSensitivity(300);
   }
 
  public void setup() 
@@ -89,6 +91,7 @@ public class Flocking extends PApplet
     noStroke();
     rect(0, 0, displayWidth, displayHeight);
 */ 
+  bd.detect(ap.mix);
   //Audio related variables
   float halfH = height / 2;
   float average = 0;
@@ -136,16 +139,15 @@ public class Flocking extends PApplet
             int y = (int)random(displayHeight);
             int c = camp.get(x,y);
             float f = lerpedBuffer[i%1024] * halfH * 9.5f;
-            lerpedAverage = lerp(lerpedAverage, average, 0.1f);
 
-            if (freq < 150 || freq > 1300) 
-            {
+            if (bd.isKick())         
+             {
               fill(c ,f, f); 
               
             }   
             else 
             {
-              fill(lerpedAverage); 
+              fill(0); 
             } 
 
             ellipse(x,y,f%27,f%27);
