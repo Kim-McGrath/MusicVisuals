@@ -1,5 +1,9 @@
 package ie.tudublin;
 
+// Lee's Visuals
+import C21503599.Lee;
+
+// Example's that can be run
 import example.CubeVisual;
 import example.MyVisual;
 import example.RotatingAudioBands;
@@ -20,9 +24,10 @@ public class Main
 
 
 
+
 	public static void main(String[] args)
 	{
-		
-		circle();			
+		lee();
+			
 	}
 }
