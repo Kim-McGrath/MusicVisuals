@@ -14,15 +14,11 @@ import D22127059.Circle; //Kim Visual
 public class Main
 {	
 
-	public static void circle()
+	public static void lee()
 	{
 		String[] a = {"MAIN"};
-        processing.core.PApplet.runSketch( a, new MyFirstChange());		
+        processing.core.PApplet.runSketch( a, new Lee());		
 	}
-        processing.core.PApplet.runSketch( a, new Circle());
-    }
-
-
 
 
 	public static void main(String[] args)
