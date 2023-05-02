@@ -67,10 +67,14 @@ public class Flocking extends PApplet
     u = height / 2;
     smoothedY = u; 
     background(0);
+    
     // Load the image
     camp = loadImage("forestcampfire.jpg");
+    
+    //
     flock = new Flock();
-   
+
+       
    // Add an initial set of boids into the system
    for (int i = 0; i < 100; i++)
     {
@@ -121,7 +125,92 @@ public class Flocking extends PApplet
   
 
   camp.resize(displayWidth, displayHeight);
-        
+    
+  switch (mode) {
+    case 1:
+          background(15);
+     for(int i = 0; i < 6000; i++)
+        {
+            float lerpedAverage = 0;
+            int x = (int)random(displayWidth);
+            int y = (int)random(displayHeight);
+            int c = camp.get(x,y);
+            float f = lerpedBuffer[i%1024] * halfH * 9.5f;
+            lerpedAverage = lerp(lerpedAverage, average, 0.1f);
+
+            if (freq < 150 || freq > 1300) 
+            {
+              fill(c ,f, f); 
+              
+            }   
+            else 
+            {
+              fill(lerpedAverage); 
+            } 
+
+            ellipse(x,y,f%27,f%27);
+          }
+      break;
+    case 2:
+          background(0);
+          flock.run();
+          float lerpedAverage = 0;
+          lerpedAverage = lerp(lerpedAverage, average, 0.1f);
+          Boid.c = lerpedAverage;
+          flock.run();
+     break;
+
+    case 3:
+    flock.run();
+    for(int i = 0; i < 4000; i++)
+    {
+        int x = (int)random(displayWidth);
+        int y = (int)random(displayHeight);
+        int c = camp.get(x,y);
+        float f = lerpedBuffer[i%1024] * halfH * 9.5f;  
+        fill(c);
+        ellipse(x,y,6,6);
+        Boid.c = f;
+    }
+    flock.run();
+     break;
+
+    case
+     4:
+    flock.run();
+    for(int i = 0; i < 4000; i++)
+    {
+        int x = (int)random(displayWidth);
+        int y = (int)random(displayHeight);
+        int c = camp.get(x,y);
+        float f = lerpedBuffer[i%1024] * halfH * 9.5f;
+
+        if (freq < 50  || freq > 1500) 
+        {
+          fill(c ,f, f);
+          // c , f ,200 cool looking colour scheme
+          // 200 , f, ,f pink colourly thing 
+        }   
+        else 
+        {
+          fill(c); 
+        }   
+      
+      noStroke();
+      if(f%30 < 6 )
+      {
+        f = 6;
+      }
+      ellipse(x,y,f%27,f%27);
+      Boid.c = f;
+    }
+      flock.run();
+     break;
+
+    default:
+      break;
+  }
+  /* 
         flock.run();
         for(int i = 0; i < 4000; i++)
         {
@@ -130,16 +219,18 @@ public class Flocking extends PApplet
             int c = camp.get(x,y);
             float f = lerpedBuffer[i%1024] * halfH * 9.5f;
             //float z = random(7.5f, 25);
-            /* 
+            
             if (x < 645 ||  x > 823 && y > 50 || y < 368) 
             {
                 f = f%255 - 50 ;
                  
             } 
-            */ 
+          
               if (freq < 50  || freq > 1500) 
               {
-                fill(c ,f ,f);
+                fill(c ,f, f);
+                // c , f ,200 cool looking colour scheme
+                // 200 , f, ,f pink colourly thing 
               }   
               else 
               {
@@ -157,7 +248,7 @@ public class Flocking extends PApplet
           
           flock.run();
         
-          
+      */    
         
    
  }
