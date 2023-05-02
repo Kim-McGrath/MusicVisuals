@@ -5,8 +5,6 @@ import C21503599.MyFirstChange;
 import D22127059.Drums;
 import D22127059.Circle;
 // Example's that can be run
-import example.CubeVisual;
-import example.MyVisual;
 import example.RotatingAudioBands;
 
 
