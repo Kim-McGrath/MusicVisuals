@@ -1,40 +1,18 @@
 package ie.tudublin;
 
-// Lee's Visuals
-import C21503599.MyFirstChange;
-import D22127059.Drums;
-import D22127059.Circle;
-// Example's that can be run
-import example.RotatingAudioBands;
-
+import D22127059.Kim;
 
 
 public class Main
 {	
 
-	public void startUI()
-	{
-		String[] a = {"MAIN"};
-        processing.core.PApplet.runSketch( a, new MyFirstChange());		
-	}
-
-	public static void drums()
-	{
-		String[] a = {"MAIN"};
-        processing.core.PApplet.runSketch( a, new Drums());
-    }
 
 	public static void circle()
 	{
 		String[] a = {"MAIN"};
-        processing.core.PApplet.runSketch( a, new Circle());
+        processing.core.PApplet.runSketch( a, new Kim());
     }
 
-	public static void RotatingAudioBands()
-	{
-		String[] a = {"MAIN"};
-        processing.core.PApplet.runSketch( a, new RotatingAudioBands());
-    }
 
 	public static void main(String[] args)
 	{
