@@ -16,7 +16,12 @@ public class Main
         processing.core.PApplet.runSketch( a, new MyFirstChange());		
 	}
         processing.core.PApplet.runSketch( a, new Circle());
-    }
+    
+		public static void MyFirstChange()
+	{
+		String[] a = {"MAIN"};
+        processing.core.PApplet.runSketch( a, new MyFirstChange());		
+	}
 
 
 
