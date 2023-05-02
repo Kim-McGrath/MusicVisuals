@@ -7,23 +7,12 @@ import processing.core.PImage;
 public class Assignment extends Visual {
 
     PImage unicorn;
-    Explode lava;
-
+    Explode glitter[];
+    int ga=7;
 
     public void settings()
     {
         fullScreen(P3D, SPAN);
-    }
-
-    public void keyPressed()
-    {
-        if (key == ' ')
-        {
-            getAudioPlayer().cue(0);
-            getAudioPlayer().play();
-            
-        }
-        
     }
 
     public void setup()
@@ -32,9 +21,17 @@ public class Assignment extends Visual {
         colorMode(HSB);
 
         startMinim();
-        loadAudio("chucky.mp3");
+        loadAudio("ileanaChucky.mp3");
 
-        lava = new Explode(this);
+        glitter = new Explode[ga];
+
+
+        for(int i=0; i<ga; i++){
+            glitter[i] = new Explode(this, 12500+i*1500);
+        }
+
+        getAudioPlayer().play();
+        getAudioPlayer().cue(5800);
 
     }
 
@@ -51,7 +48,7 @@ public class Assignment extends Visual {
         //translate(0, 0, -250);
         translate(width/2, height/2, 500);
                
-        float boxSize = 200 + (getAmplitude() * 300);//map(average, 0, 1, 100, 400); 
+        float boxSize = 250 + (getAmplitude() * 300);//map(average, 0, 1, 100, 400); 
         smoothedBoxSize = lerp(smoothedBoxSize, boxSize, 0.2f);
 
         
@@ -74,7 +71,13 @@ public class Assignment extends Visual {
         rotateX(-2*angle);
         strokeWeight(2);
         fill(140, 255, 255, 70);
-        lava.render();
+        for(int i=0; i<ga; i++){
+            glitter[i].render();
+        }
+
+
+        
+    
         angle += 0.01f;
     
 

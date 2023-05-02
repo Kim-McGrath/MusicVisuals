@@ -24,6 +24,10 @@ public class cubes {
         p.popMatrix();
     }
 
+    public void update(){
+        position.add(velocity);
+    }
+
     public void antigravity(PVector gravPoint, float min, float max){
         PVector temp;
 
@@ -31,10 +35,14 @@ public class cubes {
         //temp.x = PApplet.constrain(temp.x, min, max);
         //temp.y = PApplet.constrain(temp.y, min, max);
         //temp.z = PApplet.constrain(temp.z, min, max);
-        temp.mult(0.05f);
-        position.add(temp);
+        temp.mult(0.06f);
+        velocity.set(temp);
 
 
+    }
+
+    public PVector getPosition(){
+        return position;
     }
 
 
