@@ -2,6 +2,11 @@ package ie.tudublin;
 
 import processing.core.PApplet;
 import ddf.minim.*;
+import ddf.minim.analysis.*;
+import ddf.minim.effects.*;
+import ddf.minim.signals.*;
+import ddf.minim.spi.*;
+import ddf.minim.ugens.*;
 import ddf.minim.analysis.FFT;
 
 public abstract class Visual extends PApplet
@@ -15,7 +20,7 @@ public abstract class Visual extends PApplet
 	private Minim minim;
 	private AudioInput ai;
 	private AudioPlayer ap;
-	private AudioBuffer ab;
+	protected AudioBuffer ab;
 	private FFT fft;
 
 	private float amplitude  = 0;
