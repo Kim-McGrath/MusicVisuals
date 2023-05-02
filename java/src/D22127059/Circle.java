@@ -8,7 +8,7 @@ import processing.core.PApplet;
 import processing.core.PShape;
 
 
-public class Kim extends PApplet
+public class Circle extends PApplet
 {
     Minim minim;
     AudioPlayer ap;
@@ -40,48 +40,46 @@ public class Kim extends PApplet
         bass = loadShape("bass.obj");
         snare.scale(5);
         bass.scale(3);
-        
+
     }
 
     float off = 0;
 
     float lerpedBuffer[] = new float[1024];
 
-    public void draw()
-    {
-    float halfH = height / 2;
-    float average = 0;
-    float sum = 0;
-    off += 1;
-
-    for(int i = 0 ; i < ab.size() ; i ++)
-    {
-        sum += abs(ab.get(i));
-        lerpedBuffer[i] = lerp(lerpedBuffer[i], ab.get(i), 0.1f);
-    }
-    average = sum / (float) ab.size();
-
-    smoothedAmplitude = lerp(smoothedAmplitude, average, 0.1f);
-
-    float cx = width / 2;
-    float cy = height / 2;
-
-    background(0);
-
-    stroke(255, 255, 255);
-    strokeWeight(5);
-    float r = halfH * 0.5f;
-    float t = TWO_PI / ab.size();
-
-    beginShape();
-    for(int i = 0 ; i < ab.size() ; i ++)
-    {
-        float amplitude = lerpedBuffer[i] * halfH * 1.0f;
-        float x = cx + cos(t * i) * (r - amplitude); 
-        float y = cy + sin(t * i) * (r - amplitude); 
-        vertex(x, y);
-    }
-    endShape(CLOSE); 
+    public void draw() {
+        float halfH = height / 2;
+        float average = 0;
+        float sum = 0;
+        off += 1;
+    
+        for(int i = 0 ; i < ab.size() ; i ++)
+        {
+            sum += abs(ab.get(i));
+            lerpedBuffer[i] = lerp(lerpedBuffer[i], ab.get(i), 0.1f);
+        }
+        average = sum / (float) ab.size();
+    
+        smoothedAmplitude = lerp(smoothedAmplitude, average, 0.1f);
+    
+        float cx = width / 2;
+        float cy = height / 2;
+    
+        background(0);
+    
+        float t = TWO_PI / ab.size();
+        beginShape();
+        for(int i = 0 ; i < ab.size() ; i ++)
+        {
+            float amplitude = lerpedBuffer[i] * halfH * 1.0f;
+            float x = cx + cos(t * i) * (halfH * 0.5f - amplitude);
+            float y = cy + sin(t * i) * (halfH * 0.5f - amplitude);
+            stroke(255);
+            strokeWeight(5);
+            vertex(x, y);
+        }
+        endShape(CLOSE);
+    
 
     stroke(74); //outer grey ring
     strokeWeight(8);
