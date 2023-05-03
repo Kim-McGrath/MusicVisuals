@@ -32,9 +32,6 @@ public class cubes {
         PVector temp;
 
         temp = PVector.sub(position, gravPoint);
-        //temp.x = PApplet.constrain(temp.x, min, max);
-        //temp.y = PApplet.constrain(temp.y, min, max);
-        //temp.z = PApplet.constrain(temp.z, min, max);
         temp.mult(0.06f);
         velocity.set(temp);
 

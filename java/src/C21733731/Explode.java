@@ -49,9 +49,7 @@ public class Explode{
                 }
             }
         }
-        //if(((Assignment)p).getAudioPlayer().position()>time+1000 && (((Assignment)p).getAudioPlayer().position() < time+2000)){
-        //    reset();
-        //}
+        
     }
 
 

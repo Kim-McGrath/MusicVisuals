@@ -48,7 +48,7 @@ public class Assignment extends Visual {
         //translate(0, 0, -250);
         translate(width/2, height/2, 500);
                
-        float boxSize = 250 + (getAmplitude() * 300);//map(average, 0, 1, 100, 400); 
+        float boxSize = 250 + (getAmplitude() * 300);
         smoothedBoxSize = lerp(smoothedBoxSize, boxSize, 0.45f);
 
         
