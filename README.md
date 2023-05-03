@@ -24,13 +24,15 @@ Here is a brief overview as to what each section of this visual assignment conta
 
 ## Instructions
 - Lee's part: Can change the size of the range for the strip 40 to 0 with the space bar, 'r' resets width, 'c' randomises the colour, 'p' pause/play rotation
+- Ileana's part: 
 
 ## How it works
 - Lee's part: fills a PVector array of the 3D coordinates for the mobius strip using the formula for a mobius strip then uses the xyz values to draw it using triangles (Trianglestrip) 
+- Ileana's part:
 
 ## What I am most proud of in the assignment
 - Lee's part: Seeing how a shape can be calculated for 3D space and implementing the formula into my code and seeing it working 
-
+- Ileana's part: Im most proud of all the baby cubes i made and the awsome unicorn picture that i found.
 
 ## Markdown Tutorial
 
