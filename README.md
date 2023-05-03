@@ -47,7 +47,8 @@ for(x = 0 ; x < amount ; x++){
         position = new PVector(0,0,0);
     }
 ```
-![unicorn1](https://user-images.githubusercontent.com/125588588/236002148-55d096f9-d022-4f32-acc6-c37f163a97c2.png)
+![unicorn2](https://user-images.githubusercontent.com/125588588/236002831-afba1c6d-a7d5-4bb1-9f4c-2f26152a9308.png)
+
 
 
 Next, using a render function in the Explode class we loop through the 3d array which stores all our cubes. Using this function it renders the cubes, it updates the cubes' position, and make them explode with antigravity.
