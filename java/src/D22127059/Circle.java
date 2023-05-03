@@ -1,3 +1,5 @@
+//To create a circular wave form in the shape of a drum and surrounded by drum objects
+
 package C21503599;
 
 import ddf.minim.AudioBuffer;
@@ -25,7 +27,7 @@ public class Circle extends PApplet
 
     public void settings()
     {
-        fullScreen(P3D, SPAN);
+        size(displayWidth, displayHeight, P3D);
     }
 
     public void setup()
@@ -58,16 +60,17 @@ public class Circle extends PApplet
             sum += abs(ab.get(i));
             lerpedBuffer[i] = lerp(lerpedBuffer[i], ab.get(i), 0.1f);
         }
+
         average = sum / (float) ab.size();
-    
-        smoothedAmplitude = lerp(smoothedAmplitude, average, 0.1f);
+        smoothedAmplitude = lerp(smoothedAmplitude, average, 0.1f); //audio wave intensity
     
         float cx = width / 2;
         float cy = height / 2;
     
         background(0);
-    
         float t = TWO_PI / ab.size();
+
+        //inner circle waveform
         beginShape();
         for(int i = 0 ; i < ab.size() ; i ++)
         {
@@ -81,7 +84,8 @@ public class Circle extends PApplet
         endShape(CLOSE);
     
 
-    stroke(74); //outer grey ring
+    //outer grey ring
+    stroke(74); 
     strokeWeight(8);
     float r2 = halfH * 0.5f;
     
@@ -95,14 +99,18 @@ public class Circle extends PApplet
     }
     endShape(CLOSE);  
 
-    lights();
+
+    lights(); //detailing on objects
         
+    //top right snare
     pushMatrix();
     translate(width/2 + 350, height/2 - 350);
     rotateX(smoothedAmplitude * 5);
+    fill(255); 
     shape(snare);
     popMatrix();
 
+    //top left bass
     pushMatrix();
     translate(width/2 - 350, height/2 - 350);
     rotateX(smoothedAmplitude * 1);
@@ -110,6 +118,7 @@ public class Circle extends PApplet
     shape(bass);
     popMatrix();
 
+    //bottom right bass
     pushMatrix();
     translate(width/2 + 350, height/2 + 350);
     rotateX(smoothedAmplitude * 1);
@@ -117,11 +126,12 @@ public class Circle extends PApplet
     shape(bass);
     popMatrix();
 
+    //bottom left snare
     pushMatrix();
     translate(width/2 - 350, height/2 + 350);
     rotateX(smoothedAmplitude * 5);
-
     shape(snare);
     popMatrix();
     }
 }
+
