@@ -17,17 +17,18 @@ public class Main
 
 	public static void lee()
 	{
-		String[] a = {"MAIN"};
-        processing.core.PApplet.runSketch( a, new CubeVisual());		
+		String[] a = {"MAIN"};		
         processing.core.PApplet.runSketch( a, new Lee());		
+	}
+	public static void ileana()
+	{
+		String[] a = {"MAIN"};
+        processing.core.PApplet.runSketch( a, new Assignment());
 	}
 
 	public static void main(String[] args)
 	{
-		lee();
-			
-		//Main main = new Main();
-		//main.startUI();	
-		assignment();		
+		//lee();	
+		ileana();		
 	}
 }
