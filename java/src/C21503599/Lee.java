@@ -31,7 +31,7 @@ public class Lee extends Visual {
     float rot = (float)0.06;
 
     public void settings() {
-        size(displayWidth, displayHeight, P3D);
+        fullScreen(P3D, SPAN);
         minim = new Minim(this);
         beat = new BeatDetect();
         beat.setSensitivity(100);

@@ -27,7 +27,7 @@ public class Circle extends PApplet
 
     public void settings()
     {
-        size(displayWidth, displayHeight, P3D);
+        fullScreen(P3D, SPAN);
     }
 
     public void setup()

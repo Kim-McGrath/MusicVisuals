@@ -31,12 +31,11 @@ public class CubeVisual extends Visual
     public void setup()
     {
         colorMode(HSB);
-        noCursor();
         
-        setFrameSize(256);
+        //setFrameSize(256);
 
         startMinim();
-        loadAudio("heroplanet.mp3");
+        loadAudio("chucky.mp3");
         //getAp().play();
         //startListening(); 
         
