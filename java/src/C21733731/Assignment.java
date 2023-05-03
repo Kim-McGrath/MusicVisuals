@@ -8,7 +8,7 @@ public class Assignment extends Visual {
 
     PImage unicorn; // Declare a PImage variable called unicorn to hold an image
     Explode glitter[]; // Declare an array in Explode class called glitter
-    int ga=6; // glitter amount = 6
+    int ga=8; // glitter amount = 8
 
     public void settings()
     {
@@ -27,7 +27,7 @@ public class Assignment extends Visual {
 
         // Loop through the glitter array
         for(int i=0; i<ga; i++){ 
-            glitter[i] = new Explode(this, 12500+i*1800);
+            glitter[i] = new Explode(this, 13500+i*2000);
         }
 
         getAudioPlayer().play(); //Start playing the audio file
@@ -48,7 +48,7 @@ public class Assignment extends Visual {
         //translate(0, 0, -250);
         translate(width/2, height/2, 500);
                
-        float boxSize = 250 + (getAmplitude() * 300); // Calculate the size of the box based on the amplitude of the audio
+        float boxSize = 100 + (getAmplitude() * 300); // Calculate the size of the box based on the amplitude of the audio
         smoothedBoxSize = lerp(smoothedBoxSize, boxSize, 0.45f); // Smoothly interpolate the box size over time
 
         

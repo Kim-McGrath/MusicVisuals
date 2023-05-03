@@ -10,20 +10,14 @@ public class Explode{
     int x, y, z;
     PApplet p;
     PVector position;
-<<<<<<< HEAD
-    int amount = 2;
-    float size = 15;
-=======
-    int amount = 10; //amount of cubes (ie 10*10)
-    float size = 15; // size of cubes
->>>>>>> e48d103685553c9bd0bcec9561be1ab67f592718
+    int amount = 10; //amount of cubes (ie 10*10);
+    float size = 7; // size of cubes
     int time;
 
     public Explode(PApplet p, int time){
         this.p = p;
         this.time = time;
         Cubes = new cubes[amount][amount][amount];
-
 
         for(x = 0 ; x < amount ; x++){
             for(y = 0 ; y < amount ; y++){
