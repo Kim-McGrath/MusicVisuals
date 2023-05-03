@@ -19,11 +19,6 @@ public class Main
         processing.core.PApplet.runSketch(a, new Lee());
     }
 
-	public static void flocking()
-	{
-		String[] a = {"MAIN"};
-        processing.core.PApplet.runSketch(a, new Flocking());
-    }
 
 
 	public static void main(String[] args)

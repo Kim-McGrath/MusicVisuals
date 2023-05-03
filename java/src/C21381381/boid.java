@@ -14,7 +14,7 @@ class Boid {
     float r;
     float maxforce;    // Maximum steering force
     float maxspeed;    // Maximum speed
-    private Flocking flocking;
+    public Flocking flocking;
     public static float c;
     public static float spread = 12.5f;
   
