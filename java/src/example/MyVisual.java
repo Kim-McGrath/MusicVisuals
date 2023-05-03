@@ -56,10 +56,10 @@ public class MyVisual extends Visual
 
         if(position <= 20){
             background(0);
-            kim.draw();   
+            kim.draw();
         }
         if(position >= 20 && position <= 30){
-            ileana.draw();
+            ileana.draw(); //
         }
 
         
