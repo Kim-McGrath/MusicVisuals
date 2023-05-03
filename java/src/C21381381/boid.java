@@ -14,12 +14,13 @@ class Boid {
     float r;
     float maxforce;    // Maximum steering force
     float maxspeed;    // Maximum speed
+    private Flocking flocking;
     public static float c;
     public static float spread = 12.5f;
   
-      public Boid(PApplet p, float x, float y) {
+      public Boid(Flocking flocking, float x, float y) {
+      this.flocking = flocking;
       acceleration = new PVector(0, 0);
-      this.p = p;
       
       velocity = PVector.random2D();
 
