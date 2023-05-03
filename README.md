@@ -57,6 +57,7 @@ Eduard's part: My visual works of grabbing an image I have found off the interne
 ## What I am most proud of in the assignment
 - Lee's part: Seeing how a shape can be calculated for 3D space and implementing the formula into my code and seeing it working 
 - Ileana's part: Im most proud of all the baby cubes i made and the awesome unicorn picture that i found.
+- Eduard's part: I'm most proud how all of my boids were able to join in with my campfire visual and have the boids change sizes to the music.
 
 ## Markdown Tutorial
 
