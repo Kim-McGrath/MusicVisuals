@@ -10,8 +10,8 @@ public class Explode{
     int x, y, z;
     PApplet p;
     PVector position;
-    int amount = 10;
-    float size = 15;
+    int amount = 10; //amount of cubes (ie 10*10)
+    float size = 15; // size of cubes
     int time;
 
     public Explode(PApplet p, int time){
@@ -49,10 +49,6 @@ public class Explode{
                 }
             }
         }
-<<<<<<< HEAD
-        
-=======
->>>>>>> 321b203772059499fadc957dedde9afd3903e2d2
     }
 
 }
