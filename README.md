@@ -29,6 +29,26 @@ Here is a brief overview as to what each section of this visual assignment conta
 ## How it works
 - Lee's part: fills a PVector array of the 3D coordinates for the mobius strip using the formula for a mobius strip then uses the xyz values to draw it using triangles (Trianglestrip) 
 - Ileana's part:
+Using a render function in an Explode class I render the cubes, make them explode with antigravity, and it updates the cubes' position.
+ ```Java
+ public void render(){
+        for(x = 0 ; x <amount ; x++){
+            for(y = 0 ; y <amount ; y++){
+                for(z = 0 ; z <amount ; z++){
+                    Cubes[x][y][z].render();
+                    Cubes[x][y][z].update();
+                    if(((Assignment)p).getAudioPlayer().position()>time ){
+                        Cubes[x][y][z].antigravity(position, 0.1f, 3f);
+                    }
+                    
+
+                }
+            }
+        }
+        
+    }
+```
+
 
 ## What I am most proud of in the assignment
 - Lee's part: Seeing how a shape can be calculated for 3D space and implementing the formula into my code and seeing it working 
