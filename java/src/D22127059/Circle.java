@@ -61,7 +61,7 @@ public class Circle extends PApplet
             lerpedBuffer[i] = lerp(lerpedBuffer[i], ab.get(i), 0.1f);
         }
 
-        average = sum / (float) ab.size();
+        average = sum / (float) ab.size(); //calc average of audio buffer
         smoothedAmplitude = lerp(smoothedAmplitude, average, 0.1f); //audio wave intensity
     
         float cx = width / 2;
@@ -83,7 +83,6 @@ public class Circle extends PApplet
         }
         endShape(CLOSE);
     
-
     //outer grey ring
     stroke(74); 
     strokeWeight(8);
