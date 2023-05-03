@@ -4,6 +4,7 @@ import C21733731.Assignment;
 import C21503599.*;
 import C21381381.Flocking;
 import D22127059.*;
+import example.MyVisual;
 
 public class Main 
 {
@@ -14,10 +15,10 @@ public class Main
         processing.core.PApplet.runSketch( a, new Assignment());
 	}
 
-	public static void circle()
+	public static void visualk()
 	{
 		String[] a = {"MAIN"};
-        processing.core.PApplet.runSketch(a, new Circle());
+        processing.core.PApplet.runSketch(a, new MyVisual());
     }
 
 	public static void lee()
@@ -36,7 +37,7 @@ public class Main
 	public static void main(String[] args)
 	{
 		
-		flocking();
+		visualk();
 	}
 	
 }
