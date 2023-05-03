@@ -49,20 +49,11 @@ public class Explode{
                 }
             }
         }
+<<<<<<< HEAD
         
+=======
+>>>>>>> 321b203772059499fadc957dedde9afd3903e2d2
     }
 
-
-    public void reset(){
-        for(x = 0 ; x <amount ; x++){
-            for(y = 0 ; y <amount ; y++){
-                for(z = 0 ; z <amount ; z++){                    
-                    Cubes[x][y][z].getPosition().x = (x * size - (float)amount/2f *size + size/2f);
-                    Cubes[x][y][z].getPosition().y = (y * size - (float)amount/2f *size + size/2f);
-                    Cubes[x][y][z].getPosition().z = (z * size - (float)amount/2f *size + size/2f);
-                }
-            }
-        }
-    }
 }
 
