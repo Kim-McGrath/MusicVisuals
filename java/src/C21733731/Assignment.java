@@ -6,9 +6,9 @@ import processing.core.PImage;
 
 public class Assignment extends Visual {
 
-    PImage unicorn;
-    Explode glitter[];
-    int ga=6;
+    PImage unicorn; // Declare a PImage variable called unicorn to hold an image
+    Explode glitter[]; // Declare an array in Explode class called glitter
+    int ga=6; // glitter amount = 6
 
     public void settings()
     {
@@ -20,17 +20,17 @@ public class Assignment extends Visual {
         unicorn = loadImage("unicorn.jpg");
         colorMode(HSB);
 
-        startMinim();
-        loadAudio("ileanaChucky.mp3");
+        startMinim(); // Start the Minim audio library
+        loadAudio("ileanaChucky.mp3"); // Load the audio file
 
         glitter = new Explode[ga];
 
-
-        for(int i=0; i<ga; i++){
-            glitter[i] = new Explode(this, 12500+i*2000);
+        // Loop through the glitter array
+        for(int i=0; i<ga; i++){ 
+            glitter[i] = new Explode(this, 12500+i*1800);
         }
 
-        getAudioPlayer().play();
+        getAudioPlayer().play(); //Start playing the audio file
         getAudioPlayer().cue(5800);
 
     }
@@ -44,12 +44,12 @@ public class Assignment extends Visual {
         image(unicorn, 0, 0, displayWidth, displayHeight);
         noFill();
         lights();
-        stroke(map(getSmoothedAmplitude(), 0, 1, 0, 255), 255, 255);
+        stroke(map(getSmoothedAmplitude(), 0, 1, 0, 255), 255, 255); // Set the stroke color based on the smoothed amplitude of the audio
         //translate(0, 0, -250);
         translate(width/2, height/2, 500);
                
-        float boxSize = 250 + (getAmplitude() * 300);
-        smoothedBoxSize = lerp(smoothedBoxSize, boxSize, 0.45f);
+        float boxSize = 250 + (getAmplitude() * 300); // Calculate the size of the box based on the amplitude of the audio
+        smoothedBoxSize = lerp(smoothedBoxSize, boxSize, 0.45f); // Smoothly interpolate the box size over time
 
         
         
