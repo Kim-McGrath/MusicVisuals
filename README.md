@@ -27,7 +27,7 @@ Here is a brief overview as to what each section of this visual assignment conta
 - Eduard's part: 1-4 to switch between each visual. 1 : just colorful display of ellipses 2: A clear image of the campfire with the boids floating through and growing and shrinking. 3: the back ground becomes drawn by ellipses and works similarly to option 2: 4: is a combination of all the visuals. The colourful display of ellipses from 1 the boids from 2 and the image is displayed through ellipses. 
 
 ## How it works
-- Lee's part: fills a PVector array of the 3D coordinates for the mobius strip using the formula for a mobius strip then uses the xyz values to draw it using triangles (Trianglestrip) 
+- Lee's part: fills a PVector array of the 3D coordinates for the mobius strip using the formula for a mobius strip then uses the xyz values to draw it using triangles, it uses the amplitude of the audio to determine the width of the strip at each point. I also use a few functions with keyPressed to stop rotation, change colours using two variables, reset the size, and change the width of the strip using space to limit the range its mapped to.
 - Ileana's part:  Makes a cube reactive to the audio with multiple smaller cubes inside of it that explode when the music gets to a certain point.
 
 First I created a cube of cubes using a cubes class and stored them in a ed array in an Explode class
@@ -151,3 +151,23 @@ This code is an example of one out of four objects being loaded in that appear i
 
 [![YouTube](http://img.youtube.com/vi/J2kHSSFA4NU/0.jpg)](https://www.youtube.com/watch?v=J2kHSSFA4NU)
 
+## Lee's cool code bits
+
+- This is what calculates the points for the mobius strip the formula
+
+```Java
+for (int i = 0; i < total; i++) {
+//u is the angle of rotation of plane around central axis
+float u = map(i, 0, total - 1, 0, PI*2);
+for (int j = 0; j < total; j++) {
+int ind = i + j * total;
+//v is the point along the line of the strip
+float v = map(j, abs(getAudioBuffer().get(ind%1024/2)*100), total -1, -siz, siz);
+float x = ((1 + v/2*(cos(u/2)))*cos(u));
+float y = ((1 + v/2*(cos(u/2)))*sin(u));
+float z = (v/2*(sin(u/2)));
+
+PVa[i][j] = new PVector(x * 50, y * 50, z * 50);
+}
+}
+```
