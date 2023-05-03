@@ -36,6 +36,9 @@ First it adds my unicorn image (Its a hella cool image), and makes the colormode
 unicorn = loadImage("unicorn.jpg");
 colorMode(HSB);
 ```
+Next I created a cube of cubes
+![Screenshot 2023-05-03 183630](https://user-images.githubusercontent.com/125588588/235999952-c491795f-a0a6-41ee-990e-96384e2c3418.png)
+
 
 Using a render function in an Explode class we loop through a 3d array which stores all our cubes. Using this function I render the cubes, it updates the cubes' position, and make them explode with antigravity.
  ```Java
