@@ -28,7 +28,7 @@ Here is a brief overview as to what each section of this visual assignment conta
 
 ## How it works
 - Lee's part: fills a PVector array of the 3D coordinates for the mobius strip using the formula for a mobius strip then uses the xyz values to draw it using triangles (Trianglestrip) 
-- Ileana's part:
+- Ileana's part: makes a cube reactive to the audio with multiple smaller cubes inside of it that explode when the music gets to a certain point.
 Using a render function in an Explode class I render the cubes, make them explode with antigravity, and it updates the cubes' position.
  ```Java
  public void render(){
