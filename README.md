@@ -1,17 +1,6 @@
 # Music Visualiser Project
 
 Team members:
-<<<<<<< HEAD
-
-Eduard Dravnieks - C21381381
-
-Ileana Toufekoula - C21733731 
-
-Kim McGrath - D22127059
-
-Lee Cox - C21503599
-
-=======
 
 Eduard Dravnieks - C21381381
 
@@ -31,12 +20,11 @@ Here is a brief overview as to what each section of this visual assignment conta
 
 - Lee's part: visualises the song with a mobius strip that changes the width of the strip based on the amplitude
 - Kim's part: a circular waveform inspired by a drum head, with 3-D snare and bass drum renders rotating to the beat
->>>>>>> newmastercauseileanabrokegit
 
 ## Instructions
 - Lee's part: Can change the size of the range for the strip 40 to 0 with the space bar, 'r' resets width, 'c' randomises the colour, 'p' pause/play rotation
 
-<<<<<<< HEAD
+
 ## Description of the assignment
 For this assignment, all four of us each decided that we wanted to not only showcase our coding abilities, but do so in a way that could include parts of our personalities. After a unanimous decision to choose the song Chucky VS The Giant Tortoise by Dance Gavin Dance due to its moments of both high intensity and technical instrumentals and vocals, we each began to think of ways to combine our creative sides with our object oriented programming minds.
 
@@ -63,7 +51,6 @@ Here is a brief overview as to what each section of this visual assignment conta
 ## What I am most proud of in the assignment
 - Lee's part: Seeing how a shape can be calculated for 3D space and implementing the formula into my code and seeing it working
 
->>>>>>> newmastercauseileanabrokegit
 ## Markdown Tutorial
 
 This is *emphasis*
