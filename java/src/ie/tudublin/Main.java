@@ -3,21 +3,24 @@ package ie.tudublin;
 // Lee's Visuals
 import C21503599.Lee;
 import C21503599.MyFirstChange;
+import D22127059.Circle;
+import example.MyVisual;
+import C21381381.Flocking;
 
-// Example's that can be run
-import C21503599.Circle;
+public class Main
+{	
 
-
-
-
-public class Main 
-{
+	public void startUI()
+	{
+		String[] a = {"MAIN"};
+        processing.core.PApplet.runSketch( a, new MyVisual());		
+	}
 
 	public static void Flocking()
 	{
 		String[] a = {"MAIN"};
-        processing.core.PApplet.runSketch( a, new MyFirstChange());		
-	}
+        processing.core.PApplet.runSketch(a, new Flocking());
+    }
 
 	public static void circle()
 	{
@@ -25,6 +28,7 @@ public class Main
         processing.core.PApplet.runSketch( a, new Circle());
     }
 
+	
 	public static void lee()
 	{
 		String[] a = {"MAIN"};
@@ -33,7 +37,10 @@ public class Main
 
 	public static void main(String[] args)
 	{
-		circle();			
+		// Main main = new Main();
+		// main.startUI();
+		Flocking();
+		
 	}
 
 }

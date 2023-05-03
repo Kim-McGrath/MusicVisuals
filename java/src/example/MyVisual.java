@@ -1,11 +1,14 @@
 package example;
 
 import ie.tudublin.*;
+import C21503599.*;
+
 
 public class MyVisual extends Visual
 {    
     WaveForm wf;
     AudioBandsVisual abv;
+    Lee lee;
 
     public void settings()
     {
@@ -15,7 +18,8 @@ public class MyVisual extends Visual
     public void setup()
     {
         startMinim();
-        startListening(); 
+        loadAudio("heroplanet.mp3");
+        getAudioPlayer().play();
         
         wf = new WaveForm(this);
         abv = new AudioBandsVisual(this);
@@ -42,12 +46,5 @@ public class MyVisual extends Visual
         {
             e.printStackTrace();
         }
-        // Call this is you want to use frequency bands
-        calculateFrequencyBands(); 
-
-        // Call this is you want to get the average amplitude
-        calculateAverageAmplitude();        
-        wf.render();
-        abv.render();
     }
 }

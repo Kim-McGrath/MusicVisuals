@@ -1,6 +1,6 @@
 //To create a circular wave form in the shape of a drum and surrounded by drum objects
-
-package C21503599;
+//Kim McGrath
+package D22127059;
 
 import ddf.minim.AudioBuffer;
 import ddf.minim.AudioInput;
@@ -105,16 +105,15 @@ public class Circle extends PApplet
     //top right snare
     pushMatrix();
     translate(width/2 + 350, height/2 - 350);
-    rotateX(smoothedAmplitude * 5);
-    fill(255); 
+    rotateX(smoothedAmplitude * 5); //Rotate on beat around point
     shape(snare);
     popMatrix();
 
     //top left bass
     pushMatrix();
     translate(width/2 - 350, height/2 - 350);
-    rotateX(smoothedAmplitude * 1);
-    rotateZ(smoothedAmplitude * 20);
+    rotateX(smoothedAmplitude * 1); //Add a sort of punch in X axis
+    rotateZ(smoothedAmplitude * 20); //Spin on beat
     shape(bass);
     popMatrix();
 
