@@ -1,9 +1,7 @@
 package ie.tudublin;
 
-import C21733731.Assignment;
 import C21503599.*;
 import C21381381.Flocking;
-import D22127059.*;
 import example.MyVisual;
 
 public class Main 
