@@ -73,6 +73,7 @@ public class Assignment{
     
         angle += 0.01f;
     
+        mv.translate(-mv.width/2, -mv.height/2, -500);
         
     }
     float angle = 0;

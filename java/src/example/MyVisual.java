@@ -45,7 +45,6 @@ public class MyVisual extends Visual
         //reset strip width
         if (key == 'r') {
             lee.siz = 20;
-            textSize(50);
         }
         //randomise colours of strip
         if (key == 'c') {
@@ -85,13 +84,16 @@ public class MyVisual extends Visual
         background(0);
 
         if(position <= 20){
-            lee.draw();
+            ileana.draw(); //
+
         }
         if(position > 20 && position <= 30){
-            ileana.draw(); //
+            lee.draw();
+
         }
         if(position > 30 && position <= 50){
             kim.draw();
+
         }
         
     }

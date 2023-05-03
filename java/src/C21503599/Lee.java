@@ -14,7 +14,7 @@ import ie.tudublin.Visual;
 import processing.core.PVector;
 
 
-public class Lee extends Visual {
+public class Lee{
 
     // Minim minim;
     // AudioInput in;
@@ -35,7 +35,7 @@ public class Lee extends Visual {
         beat = new BeatDetect();
         beat.detect(mv.getAudioPlayer().mix);
         beat.setSensitivity(100);
-        mv.colorMode(RGB);
+        mv.colorMode(mv.RGB);
     }
     
     
@@ -54,7 +54,7 @@ public class Lee extends Visual {
 
     public void draw() {
         // mv.lights();
-        mv.blendMode(NORMAL);
+        mv.blendMode(mv.NORMAL);
         mv.background(0);
         
         mv.beginCamera();
@@ -67,9 +67,9 @@ public class Lee extends Visual {
         mv.calculateAverageAmplitude();
 
         //stopped audio issues
-        mv.hint(DISABLE_DEPTH_TEST);
+        mv.hint(mv.DISABLE_DEPTH_TEST);
         //make stroke appear more 3D
-        mv.hint(ENABLE_STROKE_PERSPECTIVE);
+        mv.hint(mv.ENABLE_STROKE_PERSPECTIVE);
         int total = 40;
         
         //2d arr to store the coords of strip
@@ -79,29 +79,29 @@ public class Lee extends Visual {
         //calculate co-ordinates for mobius strip
         for (int i = 0; i < total; i++) {
             //u is the angle of rotation of plane around central axis
-            float u = map(i, 0, total - 1, 0, PI*2);
+            float u = mv.map(i, 0, total - 1, 0, mv.PI*2);
             for (int j = 0; j < total; j++) {
                 int ind = i + j * total;
                 
                 //v is the point along the line of the strip
-                float v = map(j, abs(mv.getAudioBuffer().get(ind%1024/2)*100), total -1, -siz, siz);
-                float x =  ((1 + v/2*(cos(u/2)))*cos(u));
-                float y =  ((1 + v/2*(cos(u/2)))*sin(u));
-                float z = (v/2*(sin(u/2)));
+                float v = mv.map(j, mv.abs(mv.getAudioBuffer().get(ind%1024/2)*100), total -1, -siz, siz);
+                float x =  ((1 + v/2*(mv.cos(u/2)))*mv.cos(u));
+                float y =  ((1 + v/2*(mv.cos(u/2)))*mv.sin(u));
+                float z = (v/2*(mv.sin(u/2)));
 
                 PVa[i][j] = new PVector(x * 50, y * 50, z * 50);
             }
         }
 
         //overlapping colour adds towards white
-        mv.blendMode(ADD);
+        mv.blendMode(mv.ADD);
 
         //Creates mobius strip from co-ordinates using triangles
         //Changes alpha based on amplitude each frame with a with a cap on 255
         //The red, green and blue get changed by the beat detect to switch to a dark red
         for (int i = 0; i < total - 1; i++) {
-            mv.beginShape(TRIANGLE_STRIP);
-            mv.stroke(redN, gb, gb,  min(mv.getAudioBuffer().get(i)*500, 255));
+            mv.beginShape(mv.TRIANGLE_STRIP);
+            mv.stroke(redN, gb, gb,  mv.min(mv.getAudioBuffer().get(i)*500, 255));
             mv.noFill();
             for (int j = 0; j < total -1; j++) {
                 mv.vertex(PVa[i][j].x, PVa[i][j].y, PVa[i][j].z);
