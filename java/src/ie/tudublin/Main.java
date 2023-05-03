@@ -37,7 +37,11 @@ public class Main
 	public static void main(String[] args)
 	{
 		
+<<<<<<< HEAD
 		visualk();
+=======
+		lee();
+>>>>>>> 63eb391be354d6ca4d0e5ecdc45298103efe101a
 	}
 	
 }
