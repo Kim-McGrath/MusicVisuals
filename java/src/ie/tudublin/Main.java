@@ -9,12 +9,6 @@ import example.MyVisual;
 public class Main 
 {
 
-	public static void ileana()
-	{
-		String[] a = {"MAIN"};
-        processing.core.PApplet.runSketch( a, new Assignment());
-	}
-
 	public static void visualk()
 	{
 		String[] a = {"MAIN"};

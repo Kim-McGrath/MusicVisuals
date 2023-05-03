@@ -1,5 +1,6 @@
 package C21733731;
 
+import example.MyVisual;
 import ie.tudublin.Visual;
 import processing.core.PApplet;
 import processing.core.PVector;
@@ -40,7 +41,7 @@ public class Explode{
                 for(z = 0 ; z <amount ; z++){
                     Cubes[x][y][z].render();
                     Cubes[x][y][z].update();
-                    if(((Assignment)p).getAudioPlayer().position()>time ){
+                    if(((MyVisual)p).getAudioPlayer().position()>time ){
                         Cubes[x][y][z].antigravity(position, 0.1f, 3f);
                     }
                     
