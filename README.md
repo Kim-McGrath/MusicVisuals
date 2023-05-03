@@ -31,6 +31,8 @@ Here is a brief overview as to what each section of this visual assignment conta
 - Ileana's part:  Makes a cube reactive to the audio with multiple smaller cubes inside of it that explode when the music gets to a certain point.
 
 First I created a cube of cubes using a cubes class and stored them in a ed array in an Explode class
+
+
 ```Java
 for(x = 0 ; x < amount ; x++){
             for(y = 0 ; y < amount ; y++){
@@ -50,8 +52,8 @@ for(x = 0 ; x < amount ; x++){
 ![unicorn2](https://user-images.githubusercontent.com/125588588/236002831-afba1c6d-a7d5-4bb1-9f4c-2f26152a9308.png)
 
 
-
 Next, using a render function in the Explode class we loop through the 3d array which stores all our cubes. Using this function it renders the cubes, it updates the cubes' position, and make them explode with antigravity.
+
  ```Java
  public void render(){
         for(x = 0 ; x <amount ; x++){
@@ -67,7 +69,9 @@ Next, using a render function in the Explode class we loop through the 3d array 
         }
     }
 ```
+
 And after adding another cube thats reactive to the actual audio we're using the cubes explode!!
+
 ![unicorn3](https://user-images.githubusercontent.com/125588588/236002454-e955ca0e-98b5-447a-8e89-30cab3bc5b49.png)
 
 
