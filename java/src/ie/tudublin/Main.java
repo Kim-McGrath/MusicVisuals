@@ -4,7 +4,7 @@ package ie.tudublin;
 public class Main 
 {
 
-	public static void Flocking()
+	public static void flocking()
 	{
 		String[] a = {"MAIN"};
         processing.core.PApplet.runSketch(a, new Flocking());
@@ -19,7 +19,7 @@ public class Main
 	public static void main(String[] args)
 	{
 		
-		Flocking();
+		flocking();
 	}
 	
 }
