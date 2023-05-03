@@ -16,7 +16,6 @@ public class MyVisual extends Visual
     {
         startMinim();
         startListening(); 
-        
         wf = new WaveForm(this);
         abv = new AudioBandsVisual(this);
     }
