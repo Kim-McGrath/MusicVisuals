@@ -2,13 +2,13 @@
 
 Team members:
 
-Eduard Dravnieks - C21381381 @Shattered00
+Eduard Dravnieks - C21381381 [Shattered00](https://github.com/Shattered00)
 
-Ileana Toufekoula - C21733731 @iLeanna0
+Ileana Toufekoula - C21733731 [iLeanna0](https://github.com/iLeanna0)
 
-Kim McGrath - D22127059 @Kim-McGrath
+Kim McGrath - D22127059 [Kim-McGrath](https://github.com/Kim-McGrath/)
 
-Lee Cox - C21503599 @Xoceel
+Lee Cox - C21503599 [Xoceel](https://github.com/Xoceel/)
 
 
 ## Description of the assignment
