@@ -179,8 +179,7 @@ public class Flocking extends PApplet
     {
         int x = (int)random(displayWidth);
         int y = (int)random(displayHeight);
-        int c = camp.get(x,y);
-        float f = lerpedBuffer[i%1024] * halfH * 9.5f;  
+        int c = camp.get(x,y);  
         fill(c);
         ellipse(x,y,6,6);
     }
