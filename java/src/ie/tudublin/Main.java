@@ -13,11 +13,6 @@ public class Main
         processing.core.PApplet.runSketch(a, new MyVisual());
     }
 
-	public static void lee()
-	{
-		String[] a = {"MAIN"};
-        processing.core.PApplet.runSketch(a, new Lee());
-    }
 
 	public static void flocking()
 	{

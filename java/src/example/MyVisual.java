@@ -3,12 +3,14 @@ package example;
 import C21733731.Assignment;
 import D22127059.Circle;
 import ie.tudublin.*;
+import C21503599.*;
 
 public class MyVisual extends Visual
 {    
     WaveForm wf;
     AudioBandsVisual abv;
     Circle kim;
+    Lee lee;
     Assignment ileana;
     public void settings()
     {
@@ -21,14 +23,42 @@ public class MyVisual extends Visual
         loadAudio("Chucky.mp3"); 
         kim = new Circle(this);
         ileana = new Assignment(this);
+        lee = new Lee(this);
+        getAudioPlayer().cue(0);
+        getAudioPlayer().play();
     }
 
-    public void keyPressed()
-    {
-        if (key == ' ')
-        {
-            getAudioPlayer().cue(0);
-            getAudioPlayer().play();
+    // public void keyPressed()
+    // {
+    //     if (key == ' ')
+    //     {
+            
+    //     }
+    // }
+
+    public void keyPressed() {
+        //change strip width
+        if (key == ' ') {
+            lee.swap++;
+            lee.siz = lee.swap % 2;
+        }
+        //reset strip width
+        if (key == 'r') {
+            lee.siz = 20;
+            textSize(50);
+        }
+        //randomise colours of strip
+        if (key == 'c') {
+            lee.redN = (int)random(0, 255);
+            lee.gb = (int)random(0,255);
+        }
+
+        if (key == 'p') {
+            if (lee.rot == (float)0.06) {
+                lee.rot = (float)0.00;
+            } else {
+                lee.rot = (float)0.06;
+            }
         }
     }
 
@@ -55,13 +85,14 @@ public class MyVisual extends Visual
         background(0);
 
         if(position <= 20){
-            background(0);
-            kim.draw();
+            lee.draw();
         }
-        if(position >= 20 && position <= 30){
+        if(position > 20 && position <= 30){
             ileana.draw(); //
         }
-
+        if(position > 30 && position <= 50){
+            kim.draw();
+        }
         
     }
 
