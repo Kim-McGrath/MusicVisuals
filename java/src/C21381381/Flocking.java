@@ -7,7 +7,7 @@ import ddf.minim.AudioPlayer;
 import ddf.minim.Minim;
 import ddf.minim.analysis.FFT;
 
-public class Flocking extends PApplet
+public class Flocking 
 {
   
   //Audio related things
@@ -16,7 +16,7 @@ public class Flocking extends PApplet
   AudioInput ai;
   AudioBuffer ab;
   
-
+  PApplet p;
   FFT fft;
   public static float freq;
   int mode = 0;
@@ -30,10 +30,10 @@ public class Flocking extends PApplet
   
   //Pauses the audio with spacebar if needed
   public void keyPressed() {
-  if (key >= '0' && key <= '9') {
-    mode = key - '0';
+  if (p.key >= '0' && p.key <= '9') {
+    mode = p.key - '0';
   }
-  if (keyCode == ' ') {
+  if (p.keyCode == ' ') {
           if (ap.isPlaying()) {
               ap.pause();
           } else {
@@ -52,7 +52,7 @@ public class Flocking extends PApplet
 
   public void settings()
   {
-    size(displayWidth, displayHeight);
+    p.size(p.displayWidth, p.displayHeight);
   }
 
  public void setup() 
@@ -64,12 +64,12 @@ public class Flocking extends PApplet
     ap.play();
     ab = ap.mix;
 
-    u = height / 2;
+    u = p.height / 2;
     smoothedY = u; 
-    background(0);
+    p.background(0);
     
     // Load the image
-    camp = loadImage("forestcampfire.jpg");
+    camp = p.loadImage("forestcampfire.jpg");
     
     //
     flock = new Flock();
@@ -78,20 +78,15 @@ public class Flocking extends PApplet
    // Add an initial set of boids into the system
    for (int i = 0; i < 100; i++)
     {
-     flock.addBoid(new Boid(this, width,height));
+     flock.addBoid(new Boid(this, p.width,p.height));
     }
     fft = new FFT(1024, 44100);
  }
 
  public void draw() {
-  /*  
-  fill(0, 20);
-    noStroke();
-    rect(0, 0, displayWidth, displayHeight);
-*/ 
-  
+
   //Audio related variables
-  float halfH = height / 2;
+  float halfH = p.height / 2;
   float average = 0;
   float sum = 0;
   off += 1;
@@ -115,43 +110,43 @@ public class Flocking extends PApplet
   // Also lerp each element of buffer;
   for(int i = 0 ; i < ab.size() ; i ++)
   {
-      sum += abs(ab.get(i));
-      lerpedBuffer[i] = lerp(lerpedBuffer[i], ab.get(i), 0.1f);
+      sum += PApplet.abs(ab.get(i));
+      lerpedBuffer[i] = PApplet.lerp(lerpedBuffer[i], ab.get(i), 0.1f);
   }
   average= sum / (float) ab.size();
 
-  smoothedAmplitude = lerp(smoothedAmplitude, average, 0.1f);
+  smoothedAmplitude = PApplet.lerp(smoothedAmplitude, average, 0.1f);
   
 
   
 
-  camp.resize(displayWidth, displayHeight);
+  camp.resize(p.displayWidth, p.displayHeight);
     
   switch (mode) {
     case 1:
 
      for(int i = 0; i < 4000; i++)
         {
-            int x = (int)random(displayWidth);
-            int y = (int)random(displayHeight);
+            int x = (int)p.random(p.displayWidth);
+            int y = (int)p.random(p.displayHeight);
             int c = camp.get(x,y);
             float f = lerpedBuffer[i%1024] * halfH * 9.5f;
 
             if (freq < 60 || freq > 1500)         
              {
-              fill(c ,f, f); 
+              p.fill(c ,f, f); 
               
             }   
             else 
             {
-              fill(15); 
+              p.fill(15); 
             } 
            
-            ellipse(x,y,f%27,f%27);
+            p.ellipse(x,y,f%27,f%27);
           }
       break;
     case 2:
-          image(camp, 0 ,0);
+          p.image(camp, 0 ,0);
           flock.run();
         
           if(freq < 60 || freq > 1500)
@@ -177,11 +172,11 @@ public class Flocking extends PApplet
           }
     for(int i = 0; i < 4000; i++)
     {
-        int x = (int)random(displayWidth);
-        int y = (int)random(displayHeight);
+        int x = (int)p.random(p.displayWidth);
+        int y = (int)p.random(p.displayHeight);
         int c = camp.get(x,y);  
-        fill(c);
-        ellipse(x,y,6,6);
+        p.fill(c);
+        p.ellipse(x,y,6,6);
     }
       if(freq < 60 || freq > 1500)
           {
@@ -208,28 +203,28 @@ public class Flocking extends PApplet
     Boid.spread = 12.5f;
     for(int i = 0; i < 4000; i++)
     {
-        int x = (int)random(displayWidth);
-        int y = (int)random(displayHeight);
+        int x = (int)p.random(p.displayWidth);
+        int y = (int)p.random(p.displayHeight);
         int c = camp.get(x,y);
         float f = lerpedBuffer[i%1024] * halfH * 9.5f;
 
         if (freq < 50  || freq > 1500) 
         {
-          fill(c ,f, f);
+          p.fill(c ,f, f);
           // c , f ,200 cool looking colour scheme
           // 200 , f, ,f pink colourly thing 
         }   
         else 
         {
-          fill(c); 
+          p.fill(c); 
         }   
       
-      noStroke();
+      p.noStroke();
       if(f%30 < 6 )
       {
         f = 6;
       }
-      ellipse(x,y,f%27,f%27);
+      p.ellipse(x,y,f%27,f%27);
 
     }
       if(freq < 60 || freq > 1500)
@@ -246,6 +241,7 @@ public class Flocking extends PApplet
     default:
       break;
   }
+  //Base code without breaking parts into sections
   /* 
         flock.run();
         for(int i = 0; i < 4000; i++)
@@ -291,7 +287,7 @@ public class Flocking extends PApplet
  
  // Add a new boid into the System
  public void mousePressed() {
-   flock.addBoid(new Boid(this, mouseX,mouseY));
+   flock.addBoid(new Boid(this, p.mouseX,p.mouseY));
  }
 }
 
