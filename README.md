@@ -2,13 +2,13 @@
 
 Team members:
 
-Eduard Dravnieks - C21381381
+Eduard Dravnieks - C21381381 @Shattered00
 
-Ileana Toufekoula - C21733731 
+Ileana Toufekoula - C21733731 @iLeanna0
 
-Kim McGrath - D22127059
+Kim McGrath - D22127059 @Kim-McGrath
 
-Lee Cox - C21503599
+Lee Cox - C21503599 @Xoceel
 
 
 ## Description of the assignment
