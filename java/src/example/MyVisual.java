@@ -1,23 +1,24 @@
 package example;
 
+import D22127059.Circle;
 import ie.tudublin.*;
 
 public class MyVisual extends Visual
 {    
     WaveForm wf;
     AudioBandsVisual abv;
+    Circle kim;
 
     public void settings()
     {
-        size(1024, 500);
+        fullScreen(P3D, SPAN);
     }
 
     public void setup()
     {
         startMinim();
         startListening(); 
-        wf = new WaveForm(this);
-        abv = new AudioBandsVisual(this);
+        kim = new Circle(this);
     }
 
     public void keyPressed()
@@ -46,8 +47,7 @@ public class MyVisual extends Visual
 
         // Call this is you want to get the average amplitude
         calculateAverageAmplitude();        
-        wf.render();
-        abv.render();
+        kim.draw();
 
 
         
