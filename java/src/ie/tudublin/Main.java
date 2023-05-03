@@ -10,10 +10,10 @@ import C21503599.Circle;
 
 
 
-public class Main
-{	
+public class Main 
+{
 
-	public void startUI()
+	public static void Flocking()
 	{
 		String[] a = {"MAIN"};
         processing.core.PApplet.runSketch( a, new MyFirstChange());		
