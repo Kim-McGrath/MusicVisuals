@@ -10,7 +10,7 @@ public class Explode{
     int x, y, z;
     PApplet p;
     PVector position;
-    int amount = 10;
+    int amount = 2;
     float size = 15;
     int time;
 
