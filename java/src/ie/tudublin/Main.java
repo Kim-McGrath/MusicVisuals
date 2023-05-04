@@ -29,7 +29,7 @@ public class Main
 	public static void main(String[] args)
 	{
 		
-		visualk();
+		lee();
 		//Unable to add lee and flocking visuals to MyVisual
 		//Both visuals run by changing visualk(); to either lee(); or flocking();
 	}

@@ -114,7 +114,7 @@ public class Lee extends Visual {
                 int ind = i + j * total;
                 
                 //v is the point along the line of the strip
-                float v = map(j, 0, total -1, -siz, siz);
+                float v = map(j, abs(getAudioBuffer().get(ind%512)*100), total -1, -siz, siz);
                 float x =  ((1 + v/2*(cos(u/2)))*cos(u));
                 float y =  ((1 + v/2*(cos(u/2)))*sin(u));
                 float z = (v/2*(sin(u/2)));
