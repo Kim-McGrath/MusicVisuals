@@ -29,9 +29,9 @@ public class Main
 	public static void main(String[] args)
 	{
 		
-		lee();
+		visualk();
 		//Unable to add lee and flocking visuals to MyVisual
-		//Both visuals run by changing visualk(); to either lee(); or flocking();
+		//Both visuals Circle (kim) and Assignment(Ileana) run by changing to visualk(); Lee's visual runs with lee(); and Eduard's runs with flocking();
 	}
 	
 }
