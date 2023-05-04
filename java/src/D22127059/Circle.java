@@ -2,10 +2,6 @@
 //Kim McGrath
 package D22127059;
 
-import ddf.minim.AudioBuffer;
-import ddf.minim.AudioInput;
-import ddf.minim.AudioPlayer;
-import ddf.minim.Minim;
 import example.MyVisual;
 import processing.core.PApplet;
 import processing.core.PShape;
@@ -13,10 +9,6 @@ import processing.core.PShape;
 
 public class Circle
 {
-    //Minim minim;
-    //AudioPlayer ap;
-    //AudioInput ai;
-    //AudioBuffer ab;
 
     int mode = 0;
     MyVisual mv;
