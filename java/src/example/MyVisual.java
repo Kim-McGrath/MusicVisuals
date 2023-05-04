@@ -61,6 +61,13 @@ public class MyVisual extends Visual
         if(position >= 20 && position <= 30){
             ileana.draw();
         }
+        //Unable to add Lee and Flocking visuals
+        //if(position >= 20 && position <= 30){
+        //    lee.draw();
+        //}
+        //if(position >= 20 && position <= 30){
+        //    flocking.draw();
+        //}
 
         
     }
