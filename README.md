@@ -165,7 +165,7 @@ This code is an example of one out of four objects being loaded in that appear i
 
 
 
-[![YouTube](http://img.youtube.com/vi/J2kHSSFA4NU/0.jpg)](https://www.youtube.com/watch?v=J2kHSSFA4NU)
+[![YouTube](http://img.youtube.com/vi/i6nhZvyIMlk/0.jpg)](https://www.youtube.com/watch?v=i6nhZvyIMlk)
 
 ## Lee's cool code bits
 
