@@ -54,13 +54,20 @@ public class MyVisual extends Visual
         //position = 70;
         background(0);
 
-        if(position <= 20){
+        if(position <= 24){
             background(0);
-            kim.draw();
+            kim.draw();   
         }
-        if(position >= 20 && position <= 30){
-            ileana.draw(); //
+        if(position >= 25 && position <= 40){
+            ileana.draw();
         }
+        //Unable to add Lee and Flocking visuals
+        //if(position >= 20 && position <= 30){
+        //    lee.draw();
+        //}
+        //if(position >= 20 && position <= 30){
+        //    flocking.draw();
+        //}
 
         
     }

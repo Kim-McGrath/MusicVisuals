@@ -1,5 +1,6 @@
 package C21733731;
 
+import C21503599.MyFirstChange;
 import example.MyVisual;
 import ie.tudublin.Visual;
 import processing.core.PApplet;
@@ -76,3 +77,4 @@ public class Assignment{
     }
     float angle = 0;
 }
+
